@@ -807,7 +807,8 @@ void alignReads(AlignerParams params)
 			std::abort();
 		}
 	}
-	for (const auto& filename : params.fastqFiles)
+	// fix that does not close pipes, TODO better fix
+	/*for (const auto& filename : params.fastqFiles)
 	{
 		std::ifstream file { filename };
 		if (!file.good())
@@ -815,7 +816,7 @@ void alignReads(AlignerParams params)
 			std::cerr << "Input sequence file cannot be read: " << filename << std::endl;
 			std::abort();
 		}
-	}
+	}*/
 
 	const std::unordered_map<std::string, std::vector<SeedHit>>* seedHitsToThreads = nullptr;
 	std::unordered_map<std::string, std::vector<SeedHit>> seedHits;
